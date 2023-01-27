@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskView\TaskViewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,5 @@ Route::get('/', function () {
 });
 
 Route::prefix('task')->group(function () {
-    Route::get('getAll', [TaskController::class, 'getAll']);
-    Route::get('getByID/{id}', [TaskController::class, 'getByID']);
-    Route::post('addTask', [TaskController::class, 'addTask']);
-    Route::put('editTask/{id}', [TaskController::class, 'editTask']);
-    Route::delete('deleteTask/{id}', [TaskController::class, 'deleteTask']);
+    Route::get('/app', [TaskViewController::class, 'mainPage']);
 });
